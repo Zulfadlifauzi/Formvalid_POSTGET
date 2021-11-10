@@ -13,7 +13,7 @@ class _SignupScreenState extends State<PostDataScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController nameController = TextEditingController();
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class _SignupScreenState extends State<PostDataScreen> {
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
-                  autovalidateMode: AutovalidateMode.always,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: nameController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -74,7 +74,7 @@ class _SignupScreenState extends State<PostDataScreen> {
                   height: 20,
                 ),
                 TextFormField(
-                  autovalidateMode: AutovalidateMode.always,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: emailController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -97,7 +97,7 @@ class _SignupScreenState extends State<PostDataScreen> {
                   height: 20,
                 ),
                 TextFormField(
-                  autovalidateMode: AutovalidateMode.always,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
                   obscureText: true,
                   controller: passController,
                   decoration: InputDecoration(
@@ -120,6 +120,9 @@ class _SignupScreenState extends State<PostDataScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () {
+                      nameController.clear();
+                      passController.clear();
+                      emailController.clear();
                       if (_formKey.currentState!.validate()) {}
                     },
                     child: Container(
