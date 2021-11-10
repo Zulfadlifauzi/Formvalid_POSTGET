@@ -42,7 +42,9 @@ class _ProfileScreenState extends State<HomeScreen> {
                             builder: (context) => FormAndValidationScreen()));
                   },
                   child: Container(
-                    color: Colors.red,
+                    decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(10)),
                     width: 180,
                     height: 180,
                     child: Column(
@@ -64,7 +66,9 @@ class _ProfileScreenState extends State<HomeScreen> {
                             builder: (context) => PostDataScreen()));
                   },
                   child: Container(
-                    color: Colors.blue,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(10)),
                     width: 180,
                     height: 180,
                     child: Column(
@@ -93,7 +97,9 @@ class _ProfileScreenState extends State<HomeScreen> {
                                 builder: (context) => GetDataScreen()));
                       },
                       child: Container(
-                        color: Colors.yellow,
+                        decoration: BoxDecoration(
+                            color: Colors.yellow,
+                            borderRadius: BorderRadius.circular(10)),
                         width: 180,
                         height: 180,
                         child: Column(
