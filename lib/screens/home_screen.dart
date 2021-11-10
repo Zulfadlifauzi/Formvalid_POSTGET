@@ -18,7 +18,7 @@ class _ProfileScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'WIDGETS',
+          'Form,POST & GET',
           style: GoogleFonts.staatliches(
               color: Colors.white, letterSpacing: 5, fontSize: 20),
         ),
@@ -39,18 +39,27 @@ class _ProfileScreenState extends State<HomeScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => FormAndValidationScreen()));
+                            builder: (context) =>
+                                const FormAndValidationScreen()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.red,
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
                     width: 180,
                     height: 180,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Text('Form & Validation'),
+                        Image(
+                            width: 150,
+                            height: 150,
+                            image: AssetImage('assets/tarsoft.png')),
+                        Text(
+                          'Form & Validation',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, letterSpacing: 2),
+                        ),
                       ],
                     ),
                   ),
@@ -63,18 +72,26 @@ class _ProfileScreenState extends State<HomeScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => PostDataScreen()));
+                            builder: (context) => const PostDataScreen()));
                   },
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(10)),
                     width: 180,
                     height: 180,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Text('POST'),
+                        Image(
+                            width: 150,
+                            height: 150,
+                            image: AssetImage('assets/tarsoft.png')),
+                        Text(
+                          'POST Data',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, letterSpacing: 2),
+                        ),
                       ],
                     ),
                   ),
@@ -94,18 +111,27 @@ class _ProfileScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => GetDataScreen()));
+                                builder: (context) => const GetDataScreen()));
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.yellow,
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(10)),
                         width: 180,
                         height: 180,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
-                            Text('GET Data '),
+                            Image(
+                                width: 150,
+                                height: 150,
+                                image: AssetImage('assets/tarsoft.png')),
+                            Text(
+                              'GET Data',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 2),
+                            ),
                           ],
                         ),
                       ),
