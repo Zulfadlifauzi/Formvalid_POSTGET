@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:moduleapp/models/login_model.dart';
 
 class PostDataScreen extends StatefulWidget {
   const PostDataScreen({Key? key}) : super(key: key);
@@ -14,6 +15,23 @@ class _SignupScreenState extends State<PostDataScreen> {
   TextEditingController nameController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
+
+  late LoginRequestModel requestModel;
+
+  bool validateAndSave() {
+    final form = _formKey.currentState;
+    if (form!.validate()) {
+      form.save();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  @override
+  void initState() {
+    requestModel = LoginRequestModel();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +70,7 @@ class _SignupScreenState extends State<PostDataScreen> {
                 ),
                 const SizedBox(height: 20),
                 TextFormField(
+                  onSaved: (input) => requestModel.name = input,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: nameController,
                   decoration: InputDecoration(
@@ -74,6 +93,7 @@ class _SignupScreenState extends State<PostDataScreen> {
                   height: 20,
                 ),
                 TextFormField(
+                  onSaved: (input) => requestModel.email = input,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: emailController,
                   decoration: InputDecoration(
@@ -81,22 +101,23 @@ class _SignupScreenState extends State<PostDataScreen> {
                         borderRadius: BorderRadius.circular(5)),
                     labelText: 'Enter your email',
                   ),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Please enter your email';
-                    } else if (value.isNotEmpty ||
-                        !RegExp('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]')
-                            .hasMatch(value)) {
-                      return 'Invalid email';
-                    } else {
-                      return null;
-                    }
-                  },
+                  // validator: (value) {
+                  //   if (value!.isEmpty) {
+                  //     return 'Please enter your email';
+                  //   } else if (value.isNotEmpty ||
+                  //       !RegExp('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]')
+                  //           .hasMatch(value)) {
+                  //     return 'Invalid email';
+                  //   } else {
+                  //     return null;
+                  //   }
+                  // },
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 TextFormField(
+                  onSaved: (input) => requestModel.password = input,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   obscureText: true,
                   controller: passController,
@@ -120,10 +141,12 @@ class _SignupScreenState extends State<PostDataScreen> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      nameController.clear();
-                      passController.clear();
-                      emailController.clear();
+                      if (validateAndSave()) {
+                        print(requestModel.toJson());
+                      }
                       if (_formKey.currentState!.validate()) {}
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Successfully Submit')));
                     },
                     child: Container(
                       width: double.infinity,
