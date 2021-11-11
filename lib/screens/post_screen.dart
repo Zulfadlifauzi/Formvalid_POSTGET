@@ -140,6 +140,7 @@ class _SignupScreenState extends State<PostDataScreen> {
                   height: 20,
                 ),
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: Colors.black),
                     onPressed: () {
                       if (validateAndSave()) {
                         print(requestModel.toJson());

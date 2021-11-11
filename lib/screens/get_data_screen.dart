@@ -56,7 +56,11 @@ class _GetDataScreenState extends State<GetDataScreen> {
           child: Column(
             children: [
               const SizedBox(height: 20),
-              Text('GET Data from API'),
+              Text('GET Data from API',
+                  style: GoogleFonts.staatliches(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 5)),
               const SizedBox(
                 height: 40,
               ),

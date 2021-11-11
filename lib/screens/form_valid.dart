@@ -115,6 +115,7 @@ class _SignupScreenState extends State<FormAndValidationScreen> {
                   height: 20,
                 ),
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: Colors.black),
                     onPressed: () {
                       // nameController.clear();
                       // passController.clear();
@@ -125,6 +126,7 @@ class _SignupScreenState extends State<FormAndValidationScreen> {
                       width: double.infinity,
                       child: const Text(
                         'Submit',
+                        style: TextStyle(color: Colors.white),
                         textAlign: TextAlign.center,
                       ),
                     ))
