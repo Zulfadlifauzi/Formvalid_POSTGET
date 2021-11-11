@@ -81,17 +81,13 @@ class _SignupScreenState extends State<FormAndValidationScreen> {
                         borderRadius: BorderRadius.circular(5)),
                     labelText: 'Enter your email',
                   ),
-                  // validator: (value) {
-                  //   if (value!.isEmpty) {
-                  //     return 'Please enter your email';
-                  //   } else if (value.isNotEmpty ||
-                  //       RegExp('^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]')
-                  //           .hasMatch(value)) {
-                  //     return 'Invalid email';
-                  //   } else {
-                  //     return null;
-                  //   }
-                  // },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter your email';
+                    } else {
+                      return null;
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: 20,
