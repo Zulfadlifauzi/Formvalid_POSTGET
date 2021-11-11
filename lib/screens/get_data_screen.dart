@@ -24,7 +24,6 @@ class _GetDataScreenState extends State<GetDataScreen> {
     response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       setState(() {
-        // stringResponse = response.body;
         mapResponse = json.decode(response.body);
         listResponse = mapResponse!['data'];
       });
@@ -67,41 +66,47 @@ class _GetDataScreenState extends State<GetDataScreen> {
                   physics: BouncingScrollPhysics(),
                   itemCount: listResponse == null ? 0 : listResponse!.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              margin: EdgeInsets.only(bottom: 10),
-                              child: Image.network(
-                                  listResponse![index]['avatar'])),
-                          Container(
-                            padding: const EdgeInsets.only(left: 20),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(listResponse![index]['first_name']),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(listResponse![index]['last_name']),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(listResponse![index]['email']),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                              ],
+                    if (listResponse != null) {
+                      return Container(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                                margin: EdgeInsets.only(bottom: 10),
+                                child: Image.network(
+                                    listResponse![index]['avatar'])),
+                            Container(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(listResponse![index]['first_name']),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(listResponse![index]['last_name']),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(listResponse![index]['email']),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    );
+                          ],
+                        ),
+                      );
+                    }
+                    return Container(
+                        child: Center(
+                      child: CircularProgressIndicator(),
+                    ));
                   },
                 ),
-              )
+              ),
             ],
           ),
         ),
