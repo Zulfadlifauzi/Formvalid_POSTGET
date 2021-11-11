@@ -69,26 +69,32 @@ class _GetDataScreenState extends State<GetDataScreen> {
                   itemBuilder: (context, index) {
                     return Container(
                       padding: const EdgeInsets.only(left: 20),
-                      child: Column(
+                      child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.network(listResponse![index]['avatar']),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(listResponse![index]['first_name']),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(listResponse![index]['last_name']),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Text(listResponse![index]['email']),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                            ],
+                          Container(
+                              margin: EdgeInsets.only(bottom: 10),
+                              child: Image.network(
+                                  listResponse![index]['avatar'])),
+                          Container(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(listResponse![index]['first_name']),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Text(listResponse![index]['last_name']),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Text(listResponse![index]['email']),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
